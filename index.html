@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armens | Seu estilo começa pelos pés</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontes do Google (Inter e Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="src/logo.jpeg" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons para interface profissional -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                bg: "#0a0a0a",
+                card: "#141414",
+                orange: "#ff6c00",
+                orangeHover: "#e05f00",
+                accent: "#ffffff",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .custom-gradient-line {
+        background: linear-gradient(
+          90deg,
+          #ff6c00 0%,
+          rgba(255, 108, 0, 0) 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="bg-brand-bg text-white font-sans antialiased overflow-x-hidden">
+    <!-- Topbar Informativo -->
+    <div
+      class="bg-brand-orange text-black font-semibold text-center text-xs py-2 px-4 tracking-wide flex justify-center items-center gap-2"
+    >
+      <i data-lucide="truck" class="w-4 h-4"></i>
+      <span>ENVIAMOS PARA TODO O BRASIL! ATENDIMENTO RÁPIDO PELO WHATSAPP</span>
+    </div>
+
+    <!-- Header / Nav -->
+    <header
+      class="sticky top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-white/5 transition-all duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Logo Real vinda da pasta src -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="relative flex items-center justify-center">
+            <img
+              src="src/logo.jpeg"
+              alt="Armens Logo"
+              class="w-12 h-12 rounded-full object-cover border border-brand-orange/30 group-hover:scale-105 transition-transform"
+              onerror="
+                this.style.display = 'none';
+                document.getElementById('logo-fallback').style.display = 'flex';
+              "
+            />
+            <!-- Fallback caso a imagem não carregue localmente -->
+            <div
+              id="logo-fallback"
+              class="hidden w-10 h-10 bg-brand-orange text-black rounded-full items-center justify-center font-bold"
+            >
+              A
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="text-2xl font-black tracking-tighter text-white font-display italic"
+              >ARMENS</span
+            >
+            <span
+              class="text-[9px] uppercase tracking-[0.25em] text-brand-orange font-bold -mt-1"
+              >PREMIUM SNEAKERS</span
+            >
+          </div>
+        </a>
+
+        <!-- Navegação Desktop -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            href="#catalogo"
+            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            >Coleção</a
+          >
+          <a
+            href="#sob-encomenda"
+            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            >Faça seu Pedido</a
+          >
+          <a
+            href="#diferenciais"
+            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            >Diferenciais</a
+          >
+          <a
+            href="#sobre"
+            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            >Sobre</a
+          >
+        </nav>
+
+        <!-- Redes e Contato -->
+        <div class="flex items-center gap-4">
+          <a
+            href="https://instagram.com/usearmens"
+            target="_blank"
+            class="p-2 text-white/80 hover:text-brand-orange transition-colors bg-white/5 rounded-full"
+            aria-label="Instagram"
+          >
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+          </a>
+          <a
+            href="#sob-encomenda"
+            class="hidden sm:flex items-center gap-2 bg-white text-black font-semibold text-sm px-4 py-2.5 rounded-full hover:bg-brand-orange hover:text-black transition-all duration-300"
+          >
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            <span>Pedir pelo Direct</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16"
+    >
+      <!-- Background Elements / Glows -->
+      <div
+        class="absolute inset-0 bg-radial-at-t from-brand-orange/10 via-transparent to-transparent opacity-70 pointer-events-none"
+      ></div>
+      <div
+        class="absolute -left-48 top-1/4 w-96 h-96 bg-brand-orange/20 rounded-full blur-[120px] pointer-events-none"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Conteúdo de Texto -->
+          <div
+            class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left"
+          >
+            <div
+              class="inline-flex items-center gap-2 bg-brand-orange/10 border border-brand-orange/20 rounded-full px-4 py-1.5 self-center lg:self-start mb-6"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"
+              ></span>
+              <span
+                class="text-xs font-bold text-brand-orange tracking-wider uppercase"
+                >Coleção Exclusiva 2026</span
+              >
+            </div>
+
+            <h1
+              class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display italic text-white leading-[1.05] mb-6"
+            >
+              SEU ESTILO<br />
+              COMEÇA PELOS
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-500"
+                >PÉS</span
+              >
+            </h1>
+
+            <p
+              class="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 font-light"
+            >
+              Modelos exclusivos, acabamentos impecáveis e as cores que definem
+              a sua personalidade. Sapatilhas selecionadas diretamente para o
+              seu estilo de vida.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            >
+              <a
+                href="#catalogo"
+                class="w-full sm:w-auto bg-brand-orange hover:bg-brand-orangeHover text-black text-center font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-orange/20 transition-all duration-300 transform hover:-translate-y-0.5"
+              >
+                Ver Coleção Disponível
+              </a>
+              <a
+                href="#sob-encomenda"
+                class="w-full sm:w-auto bg-white/10 hover:bg-white/15 border border-white/15 text-center text-white font-bold px-8 py-4 rounded-xl transition-all duration-300"
+              >
+                Fazer Encomenda Especial
+              </a>
+            </div>
+
+            <!-- Métricas Rápidas -->
+            <div
+              class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/5 max-w-md mx-auto lg:mx-0"
+            >
+              <div>
+                <span
+                  class="block text-2xl sm:text-3xl font-black text-white font-display italic"
+                  >100%</span
+                >
+                <span class="text-xs text-gray-500">Original / Premium</span>
+              </div>
+              <div>
+                <span
+                  class="block text-2xl sm:text-3xl font-black text-white font-display italic"
+                  >Rápido</span
+                >
+                <span class="text-xs text-gray-500"
+                  >Atendimento Humanizado</span
+                >
+              </div>
+              <div>
+                <span
+                  class="block text-2xl sm:text-3xl font-black text-brand-orange font-display italic"
+                  >BR</span
+                >
+                <span class="text-xs text-gray-500"
+                  >Envio para todo o País</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Showcase do Produto de Destaque utilizando a foto real do modelo Brasil com boné -->
+          <div class="lg:col-span-5 relative">
+            <div
+              class="relative mx-auto w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden bg-brand-card border border-white/10 p-6 flex flex-col justify-between shadow-2xl group"
+            >
+              <!-- BG Glow sutil -->
+              <div
+                class="absolute -inset-1 bg-gradient-to-r from-brand-orange to-amber-500 rounded-3xl blur opacity-15 pointer-events-none"
+              ></div>
+
+              <div class="relative z-10 flex justify-between items-start">
+                <span
+                  class="bg-brand-orange text-black font-black text-[10px] px-2.5 py-1 rounded-md tracking-wider uppercase font-display italic"
+                  >Mais Procurado</span
+                >
+                <span class="text-white/40 text-xs font-mono"
+                  >#Dunk_Brasil</span
+                >
+              </div>
+
+              <!-- Foto Real do Produto Destaque -->
+              <div
+                class="absolute inset-0 w-full h-full p-4 flex items-center justify-center"
+              >
+                <img
+                  src="src/WhatsApp Image 2026-05-25 at 09.29.10 (1).jpeg"
+                  alt="Dunk Low Brasil"
+                  class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-all duration-700 opacity-90 group-hover:opacity-100"
+                />
+                <!-- Overlay Escuro para Legibilidade -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent rounded-3xl"
+                ></div>
+              </div>
+
+              <div
+                class="relative z-10 flex justify-between items-end mt-auto w-full"
+              >
+                <div>
+                  <h3
+                    class="text-xl font-bold font-display italic text-white drop-shadow"
+                  >
+                    Dunk Low "Brasil"
+                  </h3>
+                  <p
+                    class="text-xs text-brand-orange font-semibold drop-shadow"
+                  >
+                    Acompanha Boné Exclusivo
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onclick="openPurchaseModal('Dunk Low Brasil')"
+                    class="bg-brand-orange hover:bg-brand-orangeHover text-black text-xs font-bold px-4 py-2.5 rounded-lg transition-colors shadow"
+                  >
+                    Consultar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais da Loja -->
+    <section
+      id="diferenciais"
+      class="py-16 border-t border-b border-white/5 bg-brand-card/30"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Diferencial 1 -->
+          <div
+            class="flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5"
+          >
+            <div class="p-3 bg-brand-orange/10 rounded-xl text-brand-orange">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-base font-bold mb-1">Qualidade Premium</h4>
+              <p class="text-sm text-gray-400">
+                Acabamento refinado, costuras reforçadas e materiais resistentes
+                de primeira linha.
+              </p>
+            </div>
+          </div>
+          <!-- Diferencial 2 -->
+          <div
+            class="flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5"
+          >
+            <div class="p-3 bg-brand-orange/10 rounded-xl text-brand-orange">
+              <i data-lucide="zap" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-base font-bold mb-1">Atendimento Ultra Rápido</h4>
+              <p class="text-sm text-gray-400">
+                Sem robôs. Fale direto com a nossa equipe especializada para
+                tirar as suas dúvidas.
+              </p>
+            </div>
+          </div>
+          <!-- Diferencial 3 -->
+          <div
+            class="flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5"
+          >
+            <div class="p-3 bg-brand-orange/10 rounded-xl text-brand-orange">
+              <i data-lucide="send" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-base font-bold mb-1">Envio Expresso</h4>
+              <p class="text-sm text-gray-400">
+                Despachamos rapidamente para todo o território brasileiro, com
+                código de rastreamento completo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catálogo e Coleções com Fotos Reais e Sem Valores -->
+    <section id="catalogo" class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6"
+        >
+          <div>
+            <span
+              class="text-xs font-bold text-brand-orange tracking-widest uppercase"
+              >Pronta Entrega</span
+            >
+            <h2
+              class="text-3xl sm:text-5xl font-black font-display italic mt-2"
+            >
+              COLOQUE ESTILO NOS SEUS PASSOS
+            </h2>
+            <div class="w-24 h-1 bg-brand-orange mt-4"></div>
+          </div>
+          <!-- Filtros Dinâmicos -->
+          <div class="flex flex-wrap gap-2">
+            <button
+              onclick="filterCategory('todos')"
+              id="btn-todos"
+              class="px-5 py-2 rounded-full text-xs font-bold bg-brand-orange text-black transition-all"
+            >
+              Todos
+            </button>
+            <button
+              onclick="filterCategory('dunk')"
+              id="btn-dunk"
+              class="px-5 py-2 rounded-full text-xs font-bold bg-brand-card text-white/60 hover:text-white transition-all"
+            >
+              Dunk Low
+            </button>
+            <button
+              onclick="filterCategory('af1')"
+              id="btn-af1"
+              class="px-5 py-2 rounded-full text-xs font-bold bg-brand-card text-white/60 hover:text-white transition-all"
+            >
+              Air Force 1
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid de Produtos com Fotos Reais (src/) -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          id="product-grid"
+        >
+          <!-- Produto 1: Dunk Low Brasil (WhatsApp Image 2026-05-25 at 09.29.10 (1).jpeg) -->
+          <div
+            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            data-category="dunk"
+          >
+            <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
+              <span
+                class="absolute top-4 left-4 z-10 bg-brand-orange text-black font-extrabold text-[9px] px-2 py-0.5 rounded tracking-wider uppercase"
+                >Mais Vendido</span
+              >
+              <img
+                src="src/WhatsApp Image 2026-05-25 at 09.29.10 (1).jpeg"
+                alt="Dunk Low Brasil Classic"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-base font-display">
+                  Dunk Low "Brasil Classic"
+                </h3>
+                <span class="text-xs text-brand-orange font-bold font-mono"
+                  >34-43</span
+                >
+              </div>
+              <p class="text-xs text-gray-400 mb-6">
+                A clássica paleta amarela e verde em couro premium, acompanhada
+                do boné 'brasileira'.
+              </p>
+              <div
+                class="flex items-center justify-between mt-auto pt-2 border-t border-white/5"
+              >
+                <span class="text-xs text-gray-400 font-medium"
+                  >Consulte tamanhos</span
+                >
+                <button
+                  onclick="openPurchaseModal('Dunk Low Brasil Classic')"
+                  class="flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-black text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                >
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                  <span>Consultar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 2: Dunk Low Kentucky Blue (WhatsApp Image 2026-05-25 at 09.29.10.jpeg) -->
+          <div
+            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            data-category="dunk"
+          >
+            <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
+              <img
+                src="src/WhatsApp Image 2026-05-25 at 09.29.10.jpeg"
+                alt="Dunk Low Kentucky Blue"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-base font-display">
+                  Dunk Low "Kentucky"
+                </h3>
+                <span class="text-xs text-brand-orange font-bold font-mono"
+                  >35-44</span
+                >
+              </div>
+              <p class="text-xs text-gray-400 mb-6">
+                Contraste perfeito de azul royal com couro branco. Um ícone
+                indispensável em qualquer coleção.
+              </p>
+              <div
+                class="flex items-center justify-between mt-auto pt-2 border-t border-white/5"
+              >
+                <span class="text-xs text-gray-400 font-medium"
+                  >Consulte tamanhos</span
+                >
+                <button
+                  onclick="openPurchaseModal('Dunk Low Kentucky')"
+                  class="flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-black text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                >
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                  <span>Consultar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 3: Dunk Low Cream & Green (WhatsApp Image 2026-05-25 at 09.29.09.jpeg) -->
+          <div
+            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            data-category="dunk"
+          >
+            <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
+              <img
+                src="src/WhatsApp Image 2026-05-25 at 09.29.09.jpeg"
+                alt="Dunk Low Jade Pearl"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-base font-display">
+                  Dunk Low "Jade Cream"
+                </h3>
+                <span class="text-xs text-brand-orange font-bold font-mono"
+                  >34-40</span
+                >
+              </div>
+              <p class="text-xs text-gray-400 mb-6">
+                Base off-white luxuosa complementada pelo tom verde-jade
+                metálico no swoosh e solado.
+              </p>
+              <div
+                class="flex items-center justify-between mt-auto pt-2 border-t border-white/5"
+              >
+                <span class="text-xs text-gray-400 font-medium"
+                  >Consulte tamanhos</span
+                >
+                <button
+                  onclick="openPurchaseModal('Dunk Low Jade Cream')"
+                  class="flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-black text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                >
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                  <span>Consultar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 4: Air Force 1 Brasil Laces (WhatsApp Image 2026-05-25 at 09.29.10 (3).jpeg) -->
+          <div
+            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            data-category="af1"
+          >
+            <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
+              <span
+                class="absolute top-4 left-4 z-10 bg-yellow-500 text-black font-extrabold text-[9px] px-2 py-0.5 rounded tracking-wider uppercase"
+                >Exclusivo</span
+              >
+              <img
+                src="src/WhatsApp Image 2026-05-25 at 09.29.10 (3).jpeg"
+                alt="AF1 Patriota Custom"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-base font-display">
+                  AF1 "Patriota Custom"
+                </h3>
+                <span class="text-xs text-brand-orange font-bold font-mono"
+                  >37-44</span
+                >
+              </div>
+              <p class="text-xs text-gray-400 mb-6">
+                O lendário modelo branco com atacadores personalizados trançados
+                em verde e amarelo.
+              </p>
+              <div
+                class="flex items-center justify-between mt-auto pt-2 border-t border-white/5"
+              >
+                <span class="text-xs text-gray-400 font-medium"
+                  >Consulte tamanhos</span
+                >
+                <button
+                  onclick="openPurchaseModal('AF1 Patriota Custom')"
+                  class="flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-black text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                >
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                  <span>Consultar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Encomenda Personalizada (Totalmente fiel à imagem 5046.jpeg) -->
+    <section
+      id="sob-encomenda"
+      class="py-20 bg-brand-card relative overflow-hidden"
+    >
+      <div
+        class="absolute -right-32 -bottom-32 w-96 h-96 bg-brand-orange/10 rounded-full blur-[100px] pointer-events-none"
+      ></div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          class="bg-brand-bg border border-brand-orange/30 rounded-3xl p-8 sm:p-12 shadow-2xl"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="h-2 w-2 rounded-full bg-brand-orange"></div>
+                <span
+                  class="text-xs uppercase font-extrabold tracking-widest text-brand-orange"
+                  >Sob Encomenda</span
+                >
+              </div>
+              <h2
+                class="text-3xl sm:text-5xl font-black font-display italic tracking-tight mb-4"
+              >
+                NÃO ENCONTROU<br />O QUE PROCURA?
+              </h2>
+              <!-- Faixa Estilizada do Folder -->
+              <div
+                class="bg-brand-orange text-black font-black font-display italic px-4 py-2 rounded-lg text-lg sm:text-xl inline-block transform -skew-x-6 mb-6"
+              >
+                FAÇA SEU PEDIDO!
+              </div>
+
+              <!-- Balão de Mensagem Estilo o do Folder -->
+              <div
+                class="flex gap-4 items-start bg-white/5 border border-white/10 rounded-2xl p-5 mb-6"
+              >
+                <div
+                  class="bg-brand-orange text-black p-3 rounded-full shrink-0"
+                >
+                  <i data-lucide="message-square-more" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-300 leading-relaxed">
+                    Se você não encontrou o que procura em nosso catálogo, envie
+                    uma mensagem em nosso
+                    <span class="text-brand-orange font-bold"
+                      >Direct do Instagram</span
+                    >
+                    ou pelo WhatsApp que nós verificamos a disponibilidade do
+                    modelo e trazemos para você de forma rápida.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Mini Indicadores Técnicos -->
+              <div
+                class="grid grid-cols-3 gap-4 pt-4 border-t border-white/5 text-center sm:text-left"
+              >
+                <div>
+                  <span class="block text-brand-orange font-extrabold text-xs"
+                    >Atendimento</span
+                  >
+                  <span class="text-white text-xs font-semibold"
+                    >100% Humano</span
+                  >
+                </div>
+                <div>
+                  <span class="block text-brand-orange font-extrabold text-xs"
+                    >Rapidez</span
+                  >
+                  <span class="text-white text-xs font-semibold"
+                    >Sem Burocracia</span
+                  >
+                </div>
+                <div>
+                  <span class="block text-brand-orange font-extrabold text-xs"
+                    >Busca</span
+                  >
+                  <span class="text-white text-xs font-semibold"
+                    >Qualquer Modelo</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Formulário Inteligente de Solicitação -->
+            <div
+              class="lg:col-span-5 bg-brand-card p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl"
+            >
+              <h3
+                class="text-lg font-bold mb-4 font-display italic text-brand-orange"
+              >
+                Solicite o seu Modelo
+              </h3>
+              <form
+                id="custom-request-form"
+                onsubmit="sendCustomRequest(event)"
+                class="space-y-4"
+              >
+                <div>
+                  <label
+                    class="block text-xs font-semibold uppercase text-gray-400 mb-1"
+                    >Qual modelo você deseja?</label
+                  >
+                  <input
+                    id="req-model"
+                    type="text"
+                    placeholder="Ex: Dunk Low Off-White"
+                    required
+                    class="w-full bg-brand-bg border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors text-white"
+                  />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      class="block text-xs font-semibold uppercase text-gray-400 mb-1"
+                      >Seu tamanho</label
+                    >
+                    <input
+                      id="req-size"
+                      type="number"
+                      placeholder="Ex: 39"
+                      min="30"
+                      max="48"
+                      required
+                      class="w-full bg-brand-bg border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors text-white"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-xs font-semibold uppercase text-gray-400 mb-1"
+                      >Sua Cor / Detalhe</label
+                    >
+                    <input
+                      id="req-color"
+                      type="text"
+                      placeholder="Ex: Verde/Branco"
+                      class="w-full bg-brand-bg border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors text-white"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-semibold uppercase text-gray-400 mb-1"
+                    >Como prefere o contato?</label
+                  >
+                  <select
+                    id="req-channel"
+                    class="w-full bg-brand-bg border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors text-white"
+                  >
+                    <option value="Whatsapp">WhatsApp</option>
+                    <option value="Instagram">Direct do Instagram</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-brand-orange hover:bg-brand-orangeHover text-black font-black py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-orange/10 flex items-center justify-center gap-2"
+                >
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Verificar Disponibilidade</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria Real Lookbook (Uso no Pé e Caixa) -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span
+            class="text-xs font-bold text-brand-orange tracking-widest uppercase"
+            >Estilo Real</span
+          >
+          <h2 class="text-3xl sm:text-5xl font-black font-display italic mt-2">
+            DE QUEM USA ARMENS
+          </h2>
+          <p class="text-gray-400 text-sm mt-4 max-w-lg mx-auto">
+            Sapatilhas feitas para acompanhar seu estilo de vida urbano,
+            esportivo e autêntico.
+          </p>
+        </div>
+
+        <!-- Grid de Fotos Inspiradoras baseadas nos uploads reais -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+          >
+            <img
+              src="src/WhatsApp Image 2026-05-25 at 09.29.10 (2).jpeg"
+              alt="Sneakers no Pé"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-brand-orange font-bold text-xs uppercase tracking-wider"
+                >Nas ruas</span
+              >
+              <p class="text-white text-sm font-bold mt-1">
+                Dunk Brasil On Feet
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+          >
+            <img
+              src="src/WhatsApp Image 2026-05-25 at 09.29.09 (1).jpeg"
+              alt="Sneakers na Caixa"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-brand-orange font-bold text-xs uppercase tracking-wider"
+                >Unboxing</span
+              >
+              <p class="text-white text-sm font-bold mt-1">
+                Cuidado nos mínimos detalhes
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+          >
+            <img
+              src="src/WhatsApp Image 2026-05-25 at 09.29.10 (1).jpeg"
+              alt="Dunk Cap Look"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-brand-orange font-bold text-xs uppercase tracking-wider"
+                >Lifestyle</span
+              >
+              <p class="text-white text-sm font-bold mt-1">
+                O encaixe perfeito
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+          >
+            <img
+              src="src/WhatsApp Image 2026-05-25 at 09.29.10 (3).jpeg"
+              alt="Custom Laces"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-brand-orange font-bold text-xs uppercase tracking-wider"
+                >Personalização</span
+              >
+              <p class="text-white text-sm font-bold mt-1">
+                Atacadores especiais Armens
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Compra Inteligente (Sem Preço) -->
+    <div
+      id="purchase-modal"
+      class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-brand-card border border-white/10 rounded-3xl w-full max-w-md overflow-hidden relative shadow-2xl"
+      >
+        <!-- Cabeçalho com Fechar -->
+        <div
+          class="p-6 border-b border-white/5 flex justify-between items-center bg-brand-bg"
+        >
+          <h3 class="text-lg font-bold font-display italic">
+            Consultar Disponibilidade
+          </h3>
+          <button
+            onclick="closePurchaseModal()"
+            class="text-white/60 hover:text-white"
+          >
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Sumário do Produto -->
+          <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
+            <div
+              class="w-16 h-16 bg-brand-bg rounded-lg border border-white/10 flex items-center justify-center p-2"
+            >
+              <i data-lucide="package" class="text-brand-orange w-8 h-8"></i>
+            </div>
+            <div>
+              <h4
+                id="modal-product-name"
+                class="font-bold text-white text-base"
+              >
+                Nome do Produto
+              </h4>
+              <p class="text-brand-orange font-semibold text-xs">
+                Exclusivo Armens
+              </p>
+            </div>
+          </div>
+
+          <!-- Detalhes do Pedido -->
+          <div class="space-y-4">
+            <div>
+              <label
+                class="block text-xs font-semibold uppercase text-gray-400 mb-1"
+                >Selecione seu Tamanho</label
+              >
+              <div class="grid grid-cols-5 gap-2" id="size-selector">
+                <button
+                  onclick="selectSize(this)"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                >
+                  35
+                </button>
+                <button
+                  onclick="selectSize(this)"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                >
+                  37
+                </button>
+                <button
+                  onclick="selectSize(this)"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                >
+                  39
+                </button>
+                <button
+                  onclick="selectSize(this)"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                >
+                  41
+                </button>
+                <button
+                  onclick="selectSize(this)"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                >
+                  43
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label
+                class="block text-xs font-semibold uppercase text-gray-400 mb-1"
+                >Escolha o Atacador Adicional</label
+              >
+              <select
+                id="modal-laces"
+                class="w-full bg-brand-bg border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white"
+              >
+                <option value="Padrão">Atacador Padrão do Modelo</option>
+                <option value="Brasil">Atacador Custom Verde e Amarelo</option>
+                <option value="Branco Extra">
+                  Atacador Branco Clássico Extra
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Botão de Ação Direta para WhatsApp -->
+          <button
+            onclick="confirmPurchase()"
+            class="w-full bg-brand-orange hover:bg-brand-orangeHover text-black font-black py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Conversar via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé Completo da Marca -->
+    <footer id="sobre" class="bg-brand-bg border-t border-white/5 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+          <!-- Branding da Marca -->
+          <div class="md:col-span-5 space-y-6">
+            <div class="flex items-center gap-3">
+              <img
+                src="src/logo.jpeg"
+                alt="Armens logo"
+                class="w-10 h-10 rounded-full object-cover border border-brand-orange/30"
+              />
+              <span
+                class="text-xl font-black font-display italic tracking-tight"
+                >ARMENS</span
+              >
+            </div>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              A Armens é especializada em sapatilhas exclusivas e personalizadas
+              para quem valoriza a autenticidade urbana e o design moderno de
+              alta qualidade.
+            </p>
+            <!-- Contatos Oficiais (Baseados no folder 003.jpeg) -->
+            <div class="space-y-2 text-sm text-gray-400">
+              <a
+                href="https://wa.me/5534998388008"
+                class="flex items-center gap-2 hover:text-brand-orange transition-colors"
+              >
+                <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
+                <span>(34) 99838-8008</span>
+              </a>
+              <a
+                href="https://wa.me/5534998151271"
+                class="flex items-center gap-2 hover:text-brand-orange transition-colors"
+              >
+                <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
+                <span>(34) 99815-1271</span>
+              </a>
+              <a
+                href="https://instagram.com/usearmens"
+                target="_blank"
+                class="flex items-center gap-2 hover:text-brand-orange transition-colors"
+              >
+                <i
+                  data-lucide="instagram"
+                  class="w-4 h-4 text-brand-orange"
+                ></i>
+                <span>@USEARMENS</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Links Rápidos -->
+          <div class="md:col-span-3">
+            <h5
+              class="text-sm font-bold uppercase tracking-wider mb-6 text-brand-orange"
+            >
+              Navegação
+            </h5>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li>
+                <a href="#catalogo" class="hover:text-white transition-colors"
+                  >Ver Modelos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#sob-encomenda"
+                  class="hover:text-white transition-colors"
+                  >Fazer Encomenda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#diferenciais"
+                  class="hover:text-white transition-colors"
+                  >Nossos Diferenciais</a
+                >
+              </li>
+              <li>
+                <a href="#sobre" class="hover:text-white transition-colors"
+                  >Contatos</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Garantia e Transparência -->
+          <div class="md:col-span-4">
+            <h5
+              class="text-sm font-bold uppercase tracking-wider mb-6 text-brand-orange"
+            >
+              Garantia Armens
+            </h5>
+            <div
+              class="bg-brand-card p-5 rounded-2xl border border-white/5 space-y-3"
+            >
+              <div class="flex items-start gap-3">
+                <i
+                  data-lucide="shield-check"
+                  class="w-5 h-5 text-brand-orange shrink-0"
+                ></i>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                  Garantia total de satisfação: se o tamanho ou caimento não
+                  ficarem perfeitos, facilitamos a troca.
+                </p>
+              </div>
+              <div class="flex items-start gap-3">
+                <i
+                  data-lucide="truck"
+                  class="w-5 h-5 text-brand-orange shrink-0"
+                ></i>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                  Embalado e despachado com rastreabilidade completa até chegar
+                  em sua casa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright e Detalhes Legais -->
+        <div
+          class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500"
+        >
+          <p>
+            &copy; 2026 Armens Store. Todos os direitos reservados. "Seu estilo
+            começa pelos pés".
+          </p>
+          <div class="flex gap-4">
+            <span>CNPJ: Sob Consulta</span>
+            <span>Desenvolvido por: @o.calves</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
