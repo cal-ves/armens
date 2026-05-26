@@ -9,7 +9,6 @@
     <!-- Fontes do Google (Inter e Montserrat) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="shortcut icon" href="src/logo.jpeg" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap"
       rel="stylesheet"
@@ -38,19 +37,70 @@
       };
     </script>
     <style>
-      .custom-gradient-line {
-        background: linear-gradient(
-          90deg,
-          #ff6c00 0%,
-          rgba(255, 108, 0, 0) 100%
-        );
+      /* Estilos Personalizados de Revelação */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition:
+          opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition:
+          opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+
+      .reveal-scale {
+        opacity: 0;
+        transform: scale(0.95);
+        transition:
+          opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+
+      .reveal.active,
+      .reveal-left.active,
+      .reveal-right.active,
+      .reveal-scale.active {
+        opacity: 1;
+        transform: translate(0) scale(1);
+      }
+
+      /* Efeito de Flutuação Suave */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
       }
     </style>
   </head>
   <body class="bg-brand-bg text-white font-sans antialiased overflow-x-hidden">
     <!-- Topbar Informativo -->
     <div
-      class="bg-brand-orange text-black font-semibold text-center text-xs py-2 px-4 tracking-wide flex justify-center items-center gap-2"
+      class="bg-brand-orange text-black font-semibold text-center text-xs py-2 px-4 tracking-wide flex justify-center items-center gap-2 relative z-50"
     >
       <i data-lucide="truck" class="w-4 h-4"></i>
       <span>ENVIAMOS PARA TODO O BRASIL! ATENDIMENTO RÁPIDO PELO WHATSAPP</span>
@@ -69,7 +119,7 @@
             <img
               src="src/logo.jpeg"
               alt="Armens Logo"
-              class="w-12 h-12 rounded-full object-cover border border-brand-orange/30 group-hover:scale-105 transition-transform"
+              class="w-12 h-12 rounded-full object-cover border border-brand-orange/30 group-hover:scale-105 transition-transform duration-300"
               onerror="
                 this.style.display = 'none';
                 document.getElementById('logo-fallback').style.display = 'flex';
@@ -99,22 +149,22 @@
         <nav class="hidden md:flex items-center gap-8">
           <a
             href="#catalogo"
-            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            class="text-sm font-medium hover:text-brand-orange transition-colors duration-200"
             >Coleção</a
           >
           <a
             href="#sob-encomenda"
-            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            class="text-sm font-medium hover:text-brand-orange transition-colors duration-200"
             >Faça seu Pedido</a
           >
           <a
             href="#diferenciais"
-            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            class="text-sm font-medium hover:text-brand-orange transition-colors duration-200"
             >Diferenciais</a
           >
           <a
             href="#sobre"
-            class="text-sm font-medium hover:text-brand-orange transition-colors"
+            class="text-sm font-medium hover:text-brand-orange transition-colors duration-200"
             >Sobre</a
           >
         </nav>
@@ -124,14 +174,14 @@
           <a
             href="https://instagram.com/usearmens"
             target="_blank"
-            class="p-2 text-white/80 hover:text-brand-orange transition-colors bg-white/5 rounded-full"
+            class="p-2 text-white/80 hover:text-brand-orange transition-colors bg-white/5 rounded-full hover:bg-white/10 transition-all"
             aria-label="Instagram"
           >
             <i data-lucide="instagram" class="w-5 h-5"></i>
           </a>
           <a
             href="#sob-encomenda"
-            class="hidden sm:flex items-center gap-2 bg-white text-black font-semibold text-sm px-4 py-2.5 rounded-full hover:bg-brand-orange hover:text-black transition-all duration-300"
+            class="hidden sm:flex items-center gap-2 bg-white text-black font-semibold text-sm px-4 py-2.5 rounded-full hover:bg-brand-orange hover:text-black hover:scale-105 transition-all duration-300"
           >
             <i data-lucide="message-square" class="w-4 h-4"></i>
             <span>Pedir pelo Direct</span>
@@ -154,12 +204,13 @@
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <!-- Conteúdo de Texto -->
+          <!-- Conteúdo de Texto com Animações Síncronas de Entrada -->
           <div
             class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left"
           >
             <div
-              class="inline-flex items-center gap-2 bg-brand-orange/10 border border-brand-orange/20 rounded-full px-4 py-1.5 self-center lg:self-start mb-6"
+              class="reveal inline-flex items-center gap-2 bg-brand-orange/10 border border-brand-orange/20 rounded-full px-4 py-1.5 self-center lg:self-start mb-6"
+              style="transition-delay: 100ms"
             >
               <span
                 class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"
@@ -171,7 +222,8 @@
             </div>
 
             <h1
-              class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display italic text-white leading-[1.05] mb-6"
+              class="reveal text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display italic text-white leading-[1.05] mb-6"
+              style="transition-delay: 200ms"
             >
               SEU ESTILO<br />
               COMEÇA PELOS
@@ -182,25 +234,27 @@
             </h1>
 
             <p
-              class="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 font-light"
+              class="reveal text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 font-light"
+              style="transition-delay: 300ms"
             >
               Modelos exclusivos, acabamentos impecáveis e as cores que definem
-              a sua personalidade. Sapatilhas selecionadas diretamente para o
-              seu estilo de vida.
+              a sua personalidade. Tênis selecionadas diretamente para o seu
+              estilo de vida.
             </p>
 
             <div
-              class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              class="reveal flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              style="transition-delay: 400ms"
             >
               <a
                 href="#catalogo"
-                class="w-full sm:w-auto bg-brand-orange hover:bg-brand-orangeHover text-black text-center font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-orange/20 transition-all duration-300 transform hover:-translate-y-0.5"
+                class="w-full sm:w-auto bg-brand-orange hover:bg-brand-orangeHover text-black text-center font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-orange/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]"
               >
                 Ver Coleção Disponível
               </a>
               <a
                 href="#sob-encomenda"
-                class="w-full sm:w-auto bg-white/10 hover:bg-white/15 border border-white/15 text-center text-white font-bold px-8 py-4 rounded-xl transition-all duration-300"
+                class="w-full sm:w-auto bg-white/10 hover:bg-white/15 border border-white/15 text-center text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:border-white/30"
               >
                 Fazer Encomenda Especial
               </a>
@@ -208,7 +262,8 @@
 
             <!-- Métricas Rápidas -->
             <div
-              class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/5 max-w-md mx-auto lg:mx-0"
+              class="reveal grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/5 max-w-md mx-auto lg:mx-0"
+              style="transition-delay: 500ms"
             >
               <div>
                 <span
@@ -238,10 +293,13 @@
             </div>
           </div>
 
-          <!-- Showcase do Produto de Destaque utilizando a foto real do modelo Brasil com boné -->
-          <div class="lg:col-span-5 relative">
+          <!-- Showcase do Produto de Destaque com efeito de flutuação -->
+          <div
+            class="lg:col-span-5 relative reveal-scale"
+            style="transition-delay: 300ms"
+          >
             <div
-              class="relative mx-auto w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden bg-brand-card border border-white/10 p-6 flex flex-col justify-between shadow-2xl group"
+              class="animate-float relative mx-auto w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden bg-brand-card border border-white/10 p-6 flex flex-col justify-between shadow-2xl group cursor-pointer"
             >
               <!-- BG Glow sutil -->
               <div
@@ -291,7 +349,7 @@
                 <div>
                   <button
                     onclick="openPurchaseModal('Dunk Low Brasil')"
-                    class="bg-brand-orange hover:bg-brand-orangeHover text-black text-xs font-bold px-4 py-2.5 rounded-lg transition-colors shadow"
+                    class="bg-brand-orange hover:bg-brand-orangeHover text-black text-xs font-bold px-4 py-2.5 rounded-lg transition-all shadow hover:scale-105"
                   >
                     Consultar
                   </button>
@@ -303,7 +361,7 @@
       </div>
     </section>
 
-    <!-- Diferenciais da Loja -->
+    <!-- Diferenciais da Loja com Scroll Reveal Staggered -->
     <section
       id="diferenciais"
       class="py-16 border-t border-b border-white/5 bg-brand-card/30"
@@ -312,7 +370,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Diferencial 1 -->
           <div
-            class="flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5"
+            class="reveal flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5 hover:border-brand-orange/20 transition-all duration-300"
           >
             <div class="p-3 bg-brand-orange/10 rounded-xl text-brand-orange">
               <i data-lucide="shield-check" class="w-6 h-6"></i>
@@ -327,7 +385,8 @@
           </div>
           <!-- Diferencial 2 -->
           <div
-            class="flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5"
+            class="reveal flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5 hover:border-brand-orange/20 transition-all duration-300"
+            style="transition-delay: 150ms"
           >
             <div class="p-3 bg-brand-orange/10 rounded-xl text-brand-orange">
               <i data-lucide="zap" class="w-6 h-6"></i>
@@ -342,7 +401,8 @@
           </div>
           <!-- Diferencial 3 -->
           <div
-            class="flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5"
+            class="reveal flex items-start gap-4 p-6 bg-brand-card rounded-2xl border border-white/5 hover:border-brand-orange/20 transition-all duration-300"
+            style="transition-delay: 300ms"
           >
             <div class="p-3 bg-brand-orange/10 rounded-xl text-brand-orange">
               <i data-lucide="send" class="w-6 h-6"></i>
@@ -359,13 +419,13 @@
       </div>
     </section>
 
-    <!-- Catálogo e Coleções com Fotos Reais e Sem Valores -->
+    <!-- Catálogo e Coleções com Animações de Entrada Cascata -->
     <section id="catalogo" class="py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6"
         >
-          <div>
+          <div class="reveal-left">
             <span
               class="text-xs font-bold text-brand-orange tracking-widest uppercase"
               >Pronta Entrega</span
@@ -378,7 +438,7 @@
             <div class="w-24 h-1 bg-brand-orange mt-4"></div>
           </div>
           <!-- Filtros Dinâmicos -->
-          <div class="flex flex-wrap gap-2">
+          <div class="reveal-right flex flex-wrap gap-2">
             <button
               onclick="filterCategory('todos')"
               id="btn-todos"
@@ -403,14 +463,14 @@
           </div>
         </div>
 
-        <!-- Grid de Produtos com Fotos Reais (src/) -->
+        <!-- Grid de Produtos com Scroll Reveal Customizado -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           id="product-grid"
         >
-          <!-- Produto 1: Dunk Low Brasil (WhatsApp Image 2026-05-25 at 09.29.10 (1).jpeg) -->
+          <!-- Produto 1: Dunk Low Brasil -->
           <div
-            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            class="reveal group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between hover:-translate-y-2"
             data-category="dunk"
           >
             <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
@@ -454,10 +514,11 @@
             </div>
           </div>
 
-          <!-- Produto 2: Dunk Low Kentucky Blue (WhatsApp Image 2026-05-25 at 09.29.10.jpeg) -->
+          <!-- Produto 2: Dunk Low Kentucky Blue -->
           <div
-            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            class="reveal group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between hover:-translate-y-2"
             data-category="dunk"
+            style="transition-delay: 100ms"
           >
             <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
               <img
@@ -496,10 +557,11 @@
             </div>
           </div>
 
-          <!-- Produto 3: Dunk Low Cream & Green (WhatsApp Image 2026-05-25 at 09.29.09.jpeg) -->
+          <!-- Produto 3: Dunk Low Cream & Green -->
           <div
-            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            class="reveal group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between hover:-translate-y-2"
             data-category="dunk"
+            style="transition-delay: 200ms"
           >
             <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
               <img
@@ -538,10 +600,11 @@
             </div>
           </div>
 
-          <!-- Produto 4: Air Force 1 Brasil Laces (WhatsApp Image 2026-05-25 at 09.29.10 (3).jpeg) -->
+          <!-- Produto 4: Air Force 1 Brasil Laces -->
           <div
-            class="group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between"
+            class="reveal group bg-brand-card rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between hover:-translate-y-2"
             data-category="af1"
+            style="transition-delay: 300ms"
           >
             <div class="relative bg-[#1a1a1a] aspect-square overflow-hidden">
               <span
@@ -587,7 +650,7 @@
       </div>
     </section>
 
-    <!-- Seção de Encomenda Personalizada (Totalmente fiel à imagem 5046.jpeg) -->
+    <!-- Seção de Encomenda Personalizada (Fiel à imagem 5046.jpeg com entrada lateral esquerda/direita) -->
     <section
       id="sob-encomenda"
       class="py-20 bg-brand-card relative overflow-hidden"
@@ -599,8 +662,9 @@
         <div
           class="bg-brand-bg border border-brand-orange/30 rounded-3xl p-8 sm:p-12 shadow-2xl"
         >
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-7">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Conteúdo com Revelação à Esquerda -->
+            <div class="lg:col-span-7 reveal-left">
               <div class="flex items-center gap-2 mb-4">
                 <div class="h-2 w-2 rounded-full bg-brand-orange"></div>
                 <span
@@ -622,7 +686,7 @@
 
               <!-- Balão de Mensagem Estilo o do Folder -->
               <div
-                class="flex gap-4 items-start bg-white/5 border border-white/10 rounded-2xl p-5 mb-6"
+                class="flex gap-4 items-start bg-white/5 border border-white/10 rounded-2xl p-5 mb-6 hover:bg-white/10 transition-colors duration-300"
               >
                 <div
                   class="bg-brand-orange text-black p-3 rounded-full shrink-0"
@@ -673,9 +737,9 @@
               </div>
             </div>
 
-            <!-- Formulário Inteligente de Solicitação -->
+            <!-- Formulário com Revelação à Direita -->
             <div
-              class="lg:col-span-5 bg-brand-card p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl"
+              class="lg:col-span-5 bg-brand-card p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl reveal-right"
             >
               <h3
                 class="text-lg font-bold mb-4 font-display italic text-brand-orange"
@@ -744,7 +808,7 @@
                 </div>
                 <button
                   type="submit"
-                  class="w-full bg-brand-orange hover:bg-brand-orangeHover text-black font-black py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-orange/10 flex items-center justify-center gap-2"
+                  class="w-full bg-brand-orange hover:bg-brand-orangeHover text-black font-black py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-orange/10 flex items-center justify-center gap-2 hover:scale-[1.02]"
                 >
                   <i data-lucide="send" class="w-4 h-4"></i>
                   <span>Verificar Disponibilidade</span>
@@ -756,10 +820,10 @@
       </div>
     </section>
 
-    <!-- Galeria Real Lookbook (Uso no Pé e Caixa) -->
+    <!-- Galeria Real Lookbook com Efeito Escala Suave -->
     <section class="py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 reveal">
           <span
             class="text-xs font-bold text-brand-orange tracking-widest uppercase"
             >Estilo Real</span
@@ -773,10 +837,10 @@
           </p>
         </div>
 
-        <!-- Grid de Fotos Inspiradoras baseadas nos uploads reais -->
+        <!-- Grid de Fotos Inspiradoras baseadas nos uploads reais com animações escaladas -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <div
-            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+            class="reveal-scale relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
           >
             <img
               src="src/WhatsApp Image 2026-05-25 at 09.29.10 (2).jpeg"
@@ -797,7 +861,8 @@
           </div>
 
           <div
-            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+            class="reveal-scale relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+            style="transition-delay: 100ms"
           >
             <img
               src="src/WhatsApp Image 2026-05-25 at 09.29.09 (1).jpeg"
@@ -818,7 +883,8 @@
           </div>
 
           <div
-            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+            class="reveal-scale relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+            style="transition-delay: 200ms"
           >
             <img
               src="src/WhatsApp Image 2026-05-25 at 09.29.10 (1).jpeg"
@@ -839,7 +905,8 @@
           </div>
 
           <div
-            class="relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+            class="reveal-scale relative group aspect-[3/4] rounded-2xl overflow-hidden bg-brand-card border border-white/5"
+            style="transition-delay: 300ms"
           >
             <img
               src="src/WhatsApp Image 2026-05-25 at 09.29.10 (3).jpeg"
@@ -879,7 +946,7 @@
           </h3>
           <button
             onclick="closePurchaseModal()"
-            class="text-white/60 hover:text-white"
+            class="text-white/60 hover:text-white transition-colors duration-200"
           >
             <i data-lucide="x" class="w-6 h-6"></i>
           </button>
@@ -916,31 +983,31 @@
               <div class="grid grid-cols-5 gap-2" id="size-selector">
                 <button
                   onclick="selectSize(this)"
-                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all duration-200"
                 >
                   35
                 </button>
                 <button
                   onclick="selectSize(this)"
-                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all duration-200"
                 >
                   37
                 </button>
                 <button
                   onclick="selectSize(this)"
-                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all duration-200"
                 >
                   39
                 </button>
                 <button
                   onclick="selectSize(this)"
-                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all duration-200"
                 >
                   41
                 </button>
                 <button
                   onclick="selectSize(this)"
-                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all"
+                  class="py-2 text-xs font-bold bg-brand-bg hover:border-brand-orange border border-white/10 rounded-lg text-white transition-all duration-200"
                 >
                   43
                 </button>
@@ -968,7 +1035,7 @@
           <!-- Botão de Ação Direta para WhatsApp -->
           <button
             onclick="confirmPurchase()"
-            class="w-full bg-brand-orange hover:bg-brand-orangeHover text-black font-black py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+            class="w-full bg-brand-orange hover:bg-brand-orangeHover text-black font-black py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.01]"
           >
             <i data-lucide="message-circle" class="w-5 h-5"></i>
             <span>Conversar via WhatsApp</span>
@@ -1003,14 +1070,14 @@
             <div class="space-y-2 text-sm text-gray-400">
               <a
                 href="https://wa.me/5534998388008"
-                class="flex items-center gap-2 hover:text-brand-orange transition-colors"
+                class="flex items-center gap-2 hover:text-brand-orange transition-colors duration-200"
               >
                 <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
                 <span>(34) 99838-8008</span>
               </a>
               <a
                 href="https://wa.me/5534998151271"
-                class="flex items-center gap-2 hover:text-brand-orange transition-colors"
+                class="flex items-center gap-2 hover:text-brand-orange transition-colors duration-200"
               >
                 <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
                 <span>(34) 99815-1271</span>
@@ -1018,7 +1085,7 @@
               <a
                 href="https://instagram.com/usearmens"
                 target="_blank"
-                class="flex items-center gap-2 hover:text-brand-orange transition-colors"
+                class="flex items-center gap-2 hover:text-brand-orange transition-colors duration-200"
               >
                 <i
                   data-lucide="instagram"
@@ -1038,26 +1105,30 @@
             </h5>
             <ul class="space-y-3 text-sm text-gray-400">
               <li>
-                <a href="#catalogo" class="hover:text-white transition-colors"
+                <a
+                  href="#catalogo"
+                  class="hover:text-white transition-colors duration-200"
                   >Ver Modelos</a
                 >
               </li>
               <li>
                 <a
                   href="#sob-encomenda"
-                  class="hover:text-white transition-colors"
+                  class="hover:text-white transition-colors duration-200"
                   >Fazer Encomenda</a
                 >
               </li>
               <li>
                 <a
                   href="#diferenciais"
-                  class="hover:text-white transition-colors"
+                  class="hover:text-white transition-colors duration-200"
                   >Nossos Diferenciais</a
                 >
               </li>
               <li>
-                <a href="#sobre" class="hover:text-white transition-colors"
+                <a
+                  href="#sobre"
+                  class="hover:text-white transition-colors duration-200"
                   >Contatos</a
                 >
               </li>
@@ -1113,6 +1184,132 @@
         </div>
       </div>
     </footer>
-    <script src="main.js"></script>
+
+    <!-- Scripts de Interatividade & Scroll Reveal -->
+    <script>
+      // Inicialização dos Ícones Lucide
+      lucide.createIcons();
+
+      // --- SISTEMA NATIVO DE SCROLL REVEAL (INTERSECTION OBSERVER) ---
+      const revealCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            // Opcional: parar de observar após revelar uma vez
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const revealObserver = new IntersectionObserver(revealCallback, {
+        root: null, // viewport do dispositivo
+        threshold: 0.1, // inicia a revelação com 10% do elemento visível
+        rootMargin: "0px 0px -50px 0px", // margem de segurança inferior
+      });
+
+      // Registrar todos os elementos para revelação automática
+      document.addEventListener("DOMContentLoaded", () => {
+        const targets = document.querySelectorAll(
+          ".reveal, .reveal-left, .reveal-right, .reveal-scale",
+        );
+        targets.forEach((target) => revealObserver.observe(target));
+      });
+
+      // Gerenciamento de Modal e Seleção de Produto
+      let currentSelectedSize = "39"; // Default
+      let activeProductName = "";
+
+      function openPurchaseModal(name) {
+        activeProductName = name;
+        document.getElementById("modal-product-name").innerText = name;
+
+        // Exibir Modal
+        const modal = document.getElementById("purchase-modal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closePurchaseModal() {
+        const modal = document.getElementById("purchase-modal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      function selectSize(element) {
+        // Desmarcar todos os outros tamanhos
+        const buttons = document.querySelectorAll("#size-selector button");
+        buttons.forEach((btn) => {
+          btn.classList.remove("border-brand-orange", "text-brand-orange");
+          btn.classList.add("border-white/10", "text-white");
+        });
+
+        // Marcar o atual
+        element.classList.add("border-brand-orange", "text-brand-orange");
+        element.classList.remove("border-white/10", "text-white");
+        currentSelectedSize = element.innerText;
+      }
+
+      // Confirmação de Compra via WhatsApp
+      function confirmPurchase() {
+        const laceOption = document.getElementById("modal-laces").value;
+        const message = `Olá Armens! Vi a vossa Landing Page e gostaria de consultar a disponibilidade do seguinte modelo:\n\n*Modelo:* ${activeProductName}\n*Tamanho:* ${currentSelectedSize}\n*Atacador extra:* ${laceOption}\n\nPodem confirmar se está disponível para envio?`;
+        const encodedMessage = encodeURIComponent(message);
+        // Redireciona para o número de WhatsApp principal (5534998388008)
+        window.open(
+          `https://wa.me/5534998388008?text=${encodedMessage}`,
+          "_blank",
+        );
+        closePurchaseModal();
+      }
+
+      // Filtro Dinâmico de Categorias no Catálogo
+      function filterCategory(category) {
+        const grid = document.getElementById("product-grid");
+        const products = grid.querySelectorAll("[data-category]");
+
+        products.forEach((product) => {
+          if (
+            category === "todos" ||
+            product.getAttribute("data-category") === category
+          ) {
+            product.style.display = "flex";
+          } else {
+            product.style.display = "none";
+          }
+        });
+
+        // Atualização visual dos botões de filtro
+        const buttons = ["todos", "dunk", "af1"];
+        buttons.forEach((btnId) => {
+          const btn = document.getElementById(`btn-${btnId}`);
+          if (btn) {
+            if (btnId === category) {
+              btn.className =
+                "px-5 py-2 rounded-full text-xs font-bold bg-brand-orange text-black transition-all";
+            } else {
+              btn.className =
+                "px-5 py-2 rounded-full text-xs font-bold bg-brand-card text-white/60 hover:text-white transition-all";
+            }
+          }
+        });
+      }
+
+      // Envio de Solicitação Customizada de Encomenda
+      function sendCustomRequest(event) {
+        event.preventDefault();
+        const model = document.getElementById("req-model").value;
+        const size = document.getElementById("req-size").value;
+        const color =
+          document.getElementById("req-color").value || "Não informado";
+        const channel = document.getElementById("req-channel").value;
+
+        const message = `Olá equipe Armens! Gostaria de consultar um modelo sob encomenda que não encontrei no catálogo:\n\n*Modelo:* ${model}\n*Tamanho:* ${size}\n*Cor/Detalhes:* ${color}\n*Canal preferido para retorno:* ${channel}\n\nComo funciona o processo de encomenda?`;
+        const encodedMessage = encodeURIComponent(message);
+        window.open(
+          `https://wa.me/5534998388008?text=${encodedMessage}`,
+          "_blank",
+        );
+      }
+    </script>
   </body>
 </html>
